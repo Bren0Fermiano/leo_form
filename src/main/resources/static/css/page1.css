@@ -1,0 +1,47 @@
+
+.page1 {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; 
+    width: 90%;            
+    max-width: 600px;      
+    margin: 1.5rem auto;  
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-height: 350px;      
+} 
+
+.frmpg1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+} 
+
+.phoneConteiner{
+   
+    display: grid;
+    gap: 10px;
+}
+
+.frmpg1 input, select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group input {
+    flex: 1;
+}
