@@ -1,0 +1,36 @@
+.input {
+    display: none;
+}
+
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;               
+    width: 100%;
+}
+.upload-container h1{
+   display: flex;
+   position: relative;
+    color: #0d47a1;
+    font-weight: 600;
+    width: 700px; 
+    margin-left:110px;
+    align-self: center;
+}
+
+.upload-btn {
+    display: block;
+    background-color:#093170;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.upload-btn:hover {
+    background-color: #093170;
+}

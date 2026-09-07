@@ -63,19 +63,21 @@ backBtn.addEventListener('click', () => {
   }
 });
 
- const input = document.getElementById('input-documento');
-    const preview = document.getElementById('preview');
+const inptFiles = document.querySelectorAll('.input');
 
-    input.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        } else {
-            preview.style.display = 'none';
-        }
+inptFiles.forEach((input) => {
+    input.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const previewImg = input.nextElementSibling.nextElementSibling;
+        const label = document.querySelector(`label[for="${input.id}"]`)
+          if(file){
+             previewImg.src = URL.createObjectURL(file);
+            previewImg.style.display = 'block';
+            label.style.borderColor= '#28a745'
+            label.innerText ='Documento Anexado'
+          }else{
+            previewImg.style.display = 'none';
+           
+          }
     });
+});
