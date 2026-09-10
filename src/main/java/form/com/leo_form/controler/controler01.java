@@ -1,14 +1,12 @@
 package form.com.leo_form.controler;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/controler01")
+@Controller 
 public class controler01 {
-    @GetMapping
+   @GetMapping ("/employees")
  public String cntrl01(){
-    return "ifwlkjhsf";
+    return "employees.html";
  }
 }
