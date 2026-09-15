@@ -1,65 +1,72 @@
 package form.com.leo_form;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-
 public class LeoFormApplication {
- 		private static String url="jdbc:h2:./form;AUTO_SERVER=TRUE";
-		private static String user ="lf";
-		private static String key = "datakey";
-		
-	public static void main(String[] args) {
-		SpringApplication.run(LeoFormApplication.class, args);
 
-		
-		
-		try (Connection con  = DriverManager.getConnection(url,user,key);
-			Statement statement = con.createStatement(); ){
-			
-		     String sql = "CREATE TABLE IF NOT EXISTS alunos (" +
-                     "nome VARCHAR(100), " +
-                     "sobrenome VARCHAR(100), " +
-                     "curso VARCHAR(100), " +
-                     "data_nasc VARCHAR(20), " +
-                     "cpf VARCHAR(14), " +
-                     "cep VARCHAR(10), " +
-                     "telefone_a VARCHAR(15), " +
-                     "telefone_b VARCHAR(15), " +
-                     "telefone_fixo VARCHAR(15), " +
-                     "email VARCHAR(100))";
+    private static final String URL = "jdbc:sqlite:./formulario.db";
 
-						 statement.executeUpdate(sql);
+    public static void main(String[] args) {
 
-		} catch (Exception e) {
-			  System.out.println("Erro ao criar o banco: " + e.getMessage());
-		}
-  
+        criarBanco();
 
-	
-	}
+        SpringApplication.run(LeoFormApplication.class, args);
+    }
 
-    public String  getUrl(){
-       return url;
-	}
+    private static void criarBanco() {
 
-	 public String  getUser(){
-       return user;
-	}
+        String sql = """
+            CREATE TABLE IF NOT EXISTS env (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name VARCHAR(100),
+                lastname VARCHAR(100),
+                course VARCHAR(100),
+                turn VARCHAR(20),
+                date VARCHAR(20),
+                cpf VARCHAR(14),
+                cep VARCHAR(10),
+                tela VARCHAR(15),
+                telb VARCHAR(15),
+                telf VARCHAR(15),
+                email VARCHAR(100),
+                org VARCHAR(500),
+                benefic VARCHAR(10),
+                nis VARCHAR(30),
+                cgm VARCHAR(20),
+                doc_hist BLOB,
+                doc_cert BLOB,
+                doc_rg BLOB,
+                doc_luz BLOB,
+                doc_vac BLOB,
+                doc_nis BLOB,
+                doc_rgr BLOB
+            )
+            """;
 
-	 public String  getKey(){
-       return key;
-	}
+        try (
+            Connection con = DriverManager.getConnection(URL);
+            Statement statement = con.createStatement()
+        ) {
+
+            statement.executeUpdate(sql);
+
+            System.out.println("Banco criado em: " + new java.io.File("formulario.db").getAbsolutePath());
+            System.out.println("Tabela env criada/verificada com sucesso!");
+
+        } catch (Exception e) {
+            System.out.println("Erro ao criar banco: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public String getUrl() {
+        return URL;
+    }
 }
 //.\mvnw.cmd spring-boot:run
-//.\ngrok.exe http 8080

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição</title>
+
+    <link rel="stylesheet" href="./employees/employees.css">
+    <script src="./employees/employees.js" defer></script>
+</head>
+
+<body>
+
+    <header class="heder-name">
+        <div class="content">
+            <h1>Formulário de Inscrição</h1>
+        </div>
+    </header>
+
+    <div class="coneiner">
+
+        <div class="box-doc">
+
+            <h3>Documentos Enviados:</h3>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img1b" type="button">Hístorico escolar</button>
+
+                <nav id="img1" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img2b" type="button">Certidão de Nascimento</button>
+
+                <nav id="img2" class="img">
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img3b" type="button">RG e CPF</button>
+
+                <nav id="img3" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img4b" type="button">
+                    RG e CPF do(a) responsável.
+                </button>
+
+                <nav id="img4" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img5b" type="button">Declaração de Vacinação</button>
+
+                <nav id="img5" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img6b" type="button">Conta de luz</button>
+
+                <nav id="img6" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="arqv">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <button id="img7b" type="button">Número do Cartão NIS</button>
+
+                <nav id="img7" class="img">
+                    <ul>
+                        <p>placeholder</p>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="box-tabela">
+
+            <div class="card-box">
+
+                <h2>Tabela de Avaliação e Pontuação</h2>
+
+                <div class="data" th:each="aluno : ${alunos}">
+
+                    <div class="dados-header">
+
+                        <div class="titulo-ficha">
+                            II – FICHA DE PONTUAÇÃO PARA CURSOS INTEGRADOS AO ENSINO MÉDIO E FORMAÇÃO DE DOCENTES
+                        </div>
+
+                     
+                        <div class="campo campo-inscricao">
+                            <label for="ni">NÚMERO DA INSCRIÇÃO:</label>
+                            <input type="text" id="ni">
+                        </div>
+
+                        
+                        <div class="campo campo-nome" >
+
+                          <input
+                                type="text"
+                                id="name"
+                                th:value="${aluno.name}"
+                                readonly>
+                            <label for="lastname">SOBRENOME:</label>
+                            <input
+                                type="text"
+                                id="lastname"
+                                th:value="${aluno.lastname}"
+                                readonly>
+
+                            <label for="cgm">CGM:</label>
+                            <input
+                                type="text"
+                                id="cgm"
+                                th:value="${aluno.cgm}"
+                                readonly>
+
+                            <!-- LINHA 3 -->
+                            <label for="cs">CURSO:</label>
+                            <input
+                                type="text"
+                                id="cs"
+                                th:value="${aluno.course}"
+                                readonly>
+
+                            <label for="tu">TURNO:</label>
+                            <input
+                                type="text"
+                                id="tu"
+                                th:value="${aluno.turn}"
+                                readonly>
+
+                            <label for="date">DATA:</label>
+                            <input
+                                type="text"
+                                id="date"
+                                th:value="${aluno.date}"
+                                readonly>
+
+                            <label for="cpf">CPF:</label>
+                            <input
+                                type="text"
+                                id="cpf"
+                                th:value="${aluno.cpf}"
+                                readonly>
+
+                            <label for="cep">CEP:</label>
+                            <input
+                                type="text"
+                                id="cep"
+                                th:value="${aluno.cep}"
+                                readonly>
+
+                            <label for="telA">TELEFONE A:</label>
+                            <input
+                                type="text"
+                                id="telA"
+                                th:value="${aluno.telA}"
+                                readonly>
+
+                            <label for="telB">TELEFONE B:</label>
+                            <input
+                                type="text"
+                                id="telB"
+                                th:value="${aluno.telB}"
+                                readonly>
+
+                            <label for="telF">TELEFONE FIXO:</label>
+                            <input
+                                type="text"
+                                id="telF"
+                                th:value="${aluno.telF}"
+                                readonly>
+
+                            <label for="email">E-MAIL:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                th:value="${aluno.email}"
+                                readonly>
+
+                            <label for="org">ORIGEM ESCOLAR:</label>
+                            <input
+                                type="text"
+                                id="org"
+                                th:value="${aluno.org}"
+                                readonly>
+
+                            <label for="benefic">BENEFICIÁRIO:</label>
+                            <input
+                                type="text"
+                                id="benefic"
+                                th:value="${aluno.benefic}"
+                                readonly>
+
+                            <label for="nis">NIS:</label>
+                            <input
+                                type="text"
+                                id="nis"
+                                th:value="${aluno.nis}"
+                                readonly>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="table">
+
+                    <table class="nttable">
+
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Disciplinas</th>
+                                <th colspan="4">Médias Anuais</th>
+                                <th rowspan="2">
+                                    Média Aritmética<br>
+                                    (6º ao 9º Ano)
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>6º Ano</th>
+                                <th>7º Ano</th>
+                                <th>8º Ano</th>
+                                <th>9º Ano</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <strong>Língua Portuguesa</strong>
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" readonly placeholder="Média">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Matemática</strong>
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" min="0" max="100" placeholder="0-100">
+                                </td>
+
+                                <td>
+                                    <input type="number" readonly placeholder="Média">
+                                </td>
+                            </tr>
+
+                            <!-- Média Geral das Disciplinas -->
+                            <tr class="highlight-row">
+                                <td colspan="4">
+                                    <strong>
+                                        Média Aritmética das Disciplinas – Final (0-100)
+                                    </strong>
+                                </td>
+
+                                <td colspan="2">
+                                    <input type="number" readonly placeholder="Média Final">
+                                </td>
+                            </tr>
+
+                          
+                            <tr>
+                                <td colspan="4">
+                                    <strong>
+                                        Pontuação de Beneficiário + Origem Escolar
+                                    </strong>
+                                </td>
+
+                                <td colspan="2">
+                                    <input type="number" readonly placeholder="Pontos">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="4">
+                                    <strong>
+                                        Entrevista (quando aplicada) – Valor de 0 a 100
+                                    </strong>
+                                </td>
+
+                                <td colspan="2">
+                                    <input
+                                        type="number"
+                                        min="0"
+                                        max="100"
+                                        placeholder="0-100">
+                                </td>
+                            </tr>
+
+                            <!-- Total Geral -->
+                            <tr class="total-row">
+                                <td colspan="4">
+                                    <strong>TOTAL GERAL DA PONTUAÇÃO</strong>
+                                </td>
+
+                                <td colspan="2">
+                                    <input
+                                        type="number"
+                                        readonly
+                                        placeholder="Total">
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="footer1">
+
+        <div class="content">
+
+            <h2>COLÉGIO ESTADUAL LEONARDO DA VINCI</h2>
+
+            <p>
+                Ensino Fundamental, Médio, Normal e Profissional<br>
+                Av. Salgado Filho, 175 - Centro Sul Fone (46)3536-2334
+                e-mail: dvzleonardodavinci@seed.pr.gov<br>
+                CEP 85.660-000
+                DOIS VIZINHOS
+                PARANÁ
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
