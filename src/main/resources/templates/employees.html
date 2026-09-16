@@ -112,7 +112,12 @@
         </div>
 
         <div class="box-tabela">
-
+        <div class="selecao-participante"> 
+            <label for="participante"> Selecione o participante: </label> 
+            <input type="text" id="participante" list="partici" placeholder="Digite o nome do participante" autocomplete="off" >    
+            <label for="select">Selecione o curso que deseja fazer:</label>
+                <select id="partici" name="course">
+                </select>
             <div class="card-box">
 
                 <h2>Tabela de Avaliação e Pontuação</h2>
@@ -125,8 +130,10 @@
                             II – FICHA DE PONTUAÇÃO PARA CURSOS INTEGRADOS AO ENSINO MÉDIO E FORMAÇÃO DE DOCENTES
                         </div>
 
-                     
+          
+                        
                         <div class="campo campo-inscricao">
+                            
                             <label for="ni">NÚMERO DA INSCRIÇÃO:</label>
                             <input type="text" id="ni">
                         </div>
@@ -153,7 +160,7 @@
                                 th:value="${aluno.cgm}"
                                 readonly>
 
-                            <!-- LINHA 3 -->
+                            
                             <label for="cs">CURSO:</label>
                             <input
                                 type="text"
@@ -320,7 +327,7 @@
                                 </td>
                             </tr>
 
-                            <!-- Média Geral das Disciplinas -->
+                          
                             <tr class="highlight-row">
                                 <td colspan="4">
                                     <strong>
@@ -362,7 +369,7 @@
                                 </td>
                             </tr>
 
-                            <!-- Total Geral -->
+                                
                             <tr class="total-row">
                                 <td colspan="4">
                                     <strong>TOTAL GERAL DA PONTUAÇÃO</strong>

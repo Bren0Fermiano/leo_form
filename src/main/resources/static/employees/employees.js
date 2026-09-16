@@ -68,6 +68,43 @@ $('.menu-link').each(function() {
   });
 });
 
+fetch("/api/alunos")
+    .then(response => {
 
+        if (!response.ok) {
+            throw new Error("Erro HTTP: " + response.status);
+        }
+
+        return response.json();
+    })
+    .then(alunos => {
+
+        console.log("Alunos recebidos:", alunos);
+
+        const datalist = document.getElementById("partici");
+
+        if (!datalist) {
+            console.error("Não encontrou o datalist #partici");
+            return;
+        }
+
+        alunos.forEach(aluno => {
+
+            const option = document.createElement("option");
+
+
+            option.value = `${aluno.name} ${aluno.lastname}`;
+            option.text = `${aluno.name} ${aluno.lastname}`;
+
+            option.dataset.id = aluno.id;
+
+            datalist.appendChild(option);
+        });
+
+        console.log("Opções criadas:", datalist.children.length);
+    })
+    .catch(error => {
+        console.error("Erro ao carregar alunos:", error);
+    });
 
 
