@@ -100,7 +100,7 @@
         <div class="form active">
             <div id="course-inpt" class="frmpg1">
              <label for="select">Selecione o curso que deseja fazer:</label>
-                <select id="select" name="course">
+                <select id="select" name="course" required>
                 <option value="tds">Técnico em Desenvolvimento de Sistemas (Integrado ao Ensino Médio) – Turno da Manhã</option>  
                 <option value="enf">Formação de Docentes (Integrado ao Ensino Médio) – Turno da Manhã</option>   
                 <option value="agro">Técnico em Agropecuária</option>
@@ -108,7 +108,7 @@
                 </select>
 
                  <label for="select">Selecione o turno:</label>
-                <select id="select" name="course">
+                <select id="select" name="course" required>
                 <option value="m">Manhã</option>  
                 <option value="t">Tarde</option>   
                 </select>
@@ -117,14 +117,14 @@
 
             <div id="name-inpt" class="frmpg1">
                 <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" maxlength="40" placeholder="Nome">
-                <input type="text" id="lastname" name="lastname" maxlength="40" placeholder="Sobrenome">
+                <input type="text" id="name" name="name" maxlength="40" placeholder="Nome" required>
+                <input type="text" id="lastname" name="lastname" maxlength="40" placeholder="Sobrenome" required>
                 
             </div>
 
             <div class="frmpg1">
                 <label for="date1">Data de nascimento:</label>
-                <input type="date" id="date1" name="date">
+                <input type="date" id="date1" name="date" required>
             </div>
 
         </div>
@@ -133,31 +133,67 @@
         <div class="form">
             <div class="frmpg1">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" autocomplete="off"/>
+                <input type="text" 
+                id="cpf" 
+                name="cpf" 
+                inputmode="numeric" 
+                placeholder="000.000.000-00" 
+                maxlength="14" 
+                autocomplete="off"
+                required
+                >
             </div>
 
             <div class="frmpg1">
                 <label for="cep">CEP:</label>
-                <input type="number" id="cep" name="cep" maxlength="8" placeholder="00000-000">
+                <input type="number" 
+                id="cep" 
+                name="cep" 
+                maxlength="8" 
+                placeholder="00000-000"
+                required
+                >
             </div>
 
             <div class="frmpg1">
                 <div class="phoneConteiner">
 
                 <label for="telf">Telefone A(whatsapp)</label>
-                <input type="number" id="telfA" name="telfA" inputmode="numeric" maxlength="15" placeholder="(00) 90000-0000">
+                <input type="number" 
+                id="telfA" 
+                name="telfA"
+                inputmode="numeric" 
+                maxlength="15" 
+                placeholder="(00) 90000-0000"
+                required>
 
                 <label for="telf">Telefone B (Opcional):</label>
-                <input type="number" id="telfB" name="telfB" inputmode="numeric" maxlength="15" placeholder="(00) 90000-0000">      
+                <input type="number" 
+                id="telfB" 
+                name="telfB"
+                inputmode="numeric"
+                maxlength="15" 
+                placeholder="(00) 90000-0000">      
 
                 <label for="telf">Telefone Fixo (Opcional):</label>
-                <input type="number" id="telfF" name="telF" inputmode="numeric" maxlength="15" placeholder="(00) 90000-0000">
+                <input type="number" 
+                id="telfF" 
+                name="telF" 
+                inputmode="numeric" 
+                maxlength="15" 
+                placeholder="(00) 90000-0000">
                 </div>
             </div>
 
             <div class="frmpg1">
                 <label for="eml">Email:</label>
-                <input type="email" id="eml" name="email" inputmode="email" maxlength="40" placeholder="exemplo@gmail.com">
+                <input type="email" 
+                id="eml" 
+                name="email" 
+                inputmode="email"
+                maxlength="40" 
+                placeholder="exemplo@gmail.com"
+                required>
             </div>
 
         </div>
@@ -167,7 +203,7 @@
             <div class="info">
                          <div id="school-inpt" class="frmpg1">
              <label for="select">Selecione a Origem Escolar:</label>
-                <select id="select" name="org">
+                <select id="select" name="org" required>
                 <option value="1"> Ensino Fundamental cursado integralmente em Instituição da Rede Pública ou bolsista integral da Rede Particular.</option>  
                 <option value="2">Ensino Fundamental cursado parcialmente na Rede Pública, com no máximo de 01 (um) ano na Rede Particular ou bolsista parcial da Rede Particular.</option>   
                 <option value="3">Ensino Fundamental cursado parcialmente na Rede Pública, com no mínimo 02 (dois) anos e máximo de 03 (três) anos na Rede Particular.</option>
@@ -181,7 +217,7 @@
                 </div>
             
                 <label for="cep">Seu CGM:</label>
-                <input type="number" id="cgm" name="cgm" maxlength="9" placeholder="000000000">
+                <input type="number" id="cgm" name="cgm" maxlength="9" placeholder="000000000" required>
                 <a href="https://www.areadoaluno.seed.pr.gov.br/servicosaoaluno/pages/publico/pesquisarCgm.jsf?dswid=-6857"  target="_blank" rel="noopener noreferrer">
                     <p>Não sabe seu CGM? <em><u>Clique aqui para consultar no site da SEED</u> </em> </p>
                 </a>
@@ -216,20 +252,20 @@
                 
                 <h1>faça o upload/foto dos seus documentos </h1>
 
-                <input type="file" class="input"  name="docHist" id="input-documento">
+                <input type="file" class="input"  name="docHist" id="input-documento" required>
                 <label for="input-documento" class="upload-btn">
                 Hístorico escolar
                 </label>
                 <img class="preview" style="max-width: 200px; margin-top: 10px;">
 
 
-                <input type="file" class="input" name="docCert" id="input-documento1">      
+                <input type="file" class="input" name="docCert" id="input-documento1" required>      
                 <label for="input-documento1" class="upload-btn">
                 Certidão de Nascimento
                 </label>
                 <img class="preview"style="max-width: 200px; margin-top: 10px;">
 
-                <input type="file" class="input" name="docRG" id="input-documento2">
+                <input type="file" class="input" name="docRG" id="input-documento2" required>
                 <label for="input-documento2" class="upload-btn">
                 RG e CPF
                 </label>
@@ -241,19 +277,19 @@
             <div class="upload-container">
                 <h1>faça o upload/foto dos seus documentos</h1>
 
-                <input type="file" class="input" name="docLuz" id="input-documento4">
+                <input type="file" class="input" name="docLuz" id="input-documento4" required>
                 <label for="input-documento4" class="upload-btn">Conta de luz de outubro ou novembro COPEL ou SANEPAR</label>
                 <img class="preview" style="max-width: 200px; margin-top: 10px; display: none;">
 
-                <input type="file" class="input" name="docVac" id="input-documento5">      
+                <input type="file" class="input" name="docVac" id="input-documento5" required>      
                 <label for="input-documento5" class="upload-btn">Declaração de Vacinação (emitida pelo Posto de Saúde)</label>
                 <img class="preview" style="max-width: 200px; margin-top: 10px; display: none;">
 
-                <input type="file" class="input" name="docNis" id="input-documento6">
+                <input type="file" class="input" name="docNis" id="input-documento6" required>
                 <label for="input-documento6" class="upload-btn">Número do Cartão NIS (se tiver Auxílio Brasil)</label>
                 <img class="preview" style="max-width: 200px; margin-top: 10px; display: none;">
 
-                <input type="file" class="input" name="docRGR" id="input-documento7">
+                <input type="file" class="input" name="docRGR" id="input-documento7" required>
                 <label for="input-documento7" class="upload-btn">RG e CPF do(a) responsável</label>
                 <img class="preview" style="max-width: 200px; margin-top: 10px; display: none;">
             </div>
@@ -272,7 +308,7 @@
                         no curso pretendido. Autorizo o processamento dos dados pessoais e dos documentos fornecidos
                         do estudante e de seu responsável legal, exclusivamente para fins de seleção, auditoria e gestão escolar.</p>
 
-                        <input type="checkbox" id="inpt">
+                        <input type="checkbox" id="inpt" required>
                         <label for="inpt">Eu aceito os termos</label>
                 </div>
                 <div class="enviar">
