@@ -12,6 +12,21 @@ cpfInpt.addEventListener('input', (e) => {
   e.target.value = value;
 });
 
+
+const courseInpt = document.getElementById('selectC');
+const turnInpt = document.getElementById('selectT');
+    courseInpt.addEventListener('change', function(event) {
+if(courseInpt.value=="tds"||courseInpt.value=="enf"){
+  document.querySelector('#selectT option[value="n"]').disabled = true;
+ if (turnInpt.value === "n") {
+            turnInpt.value = "m";
+        }
+}else{
+  document.querySelector('#selectT option[value="n"]').disabled = false;
+}
+   });
+
+
 const backBtn = document.getElementById('prevbtn');
 const nextBtn = document.getElementById('nextbtn');
 const steps = document.querySelectorAll('.step'); 
