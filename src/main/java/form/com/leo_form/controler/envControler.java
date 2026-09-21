@@ -4,9 +4,15 @@ import form.com.leo_form.LeoFormApplication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -80,7 +86,7 @@ public class envControler {
 
             stmt.executeUpdate();
 
-            System.out.println("Inscrição salva com sucesso!");
+            System.out.println("Inscrição salva guri!");
 
             return """
                 <!DOCTYPE html>
@@ -113,7 +119,7 @@ public class envControler {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "Erro ao salvar a inscrição: " + e.getMessage();
+            return "inscrição falha com exito " + e.getMessage();
         }
     }
 
@@ -146,4 +152,39 @@ public class envControler {
             return "";
         }
     }
+
+
+    @GetMapping("/api/alunos/{id}")
+public ResponseEntity<Map<String, Object>> getAlunoById(@PathVariable Long id) {
+    String sql = "SELECT * FROM env WHERE id = ?";
+    
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:./formulario.db");
+         PreparedStatement stmt = con.prepareStatement(sql)) {
+        
+        stmt.setLong(1, id);
+        ResultSet rs = stmt.executeQuery();
+        
+        if (rs.next()) {
+            Map<String, Object> data = new HashMap<>();
+            
+            data.put("docHist", toBase64FromBytes(rs.getBytes("doc_hist")));
+            data.put("docCert", toBase64FromBytes(rs.getBytes("doc_cert")));
+            data.put("docRG", toBase64FromBytes(rs.getBytes("doc_rg")));
+            data.put("docLuz", toBase64FromBytes(rs.getBytes("doc_luz")));
+            data.put("docVac", toBase64FromBytes(rs.getBytes("doc_vac")));
+            data.put("docNis", toBase64FromBytes(rs.getBytes("doc_nis")));
+            data.put("docRGR", toBase64FromBytes(rs.getBytes("doc_rgr")));
+
+            return ResponseEntity.ok(data);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return ResponseEntity.notFound().build();
+}
+
+private String toBase64FromBytes(byte[] bytes) {
+    if (bytes == null || bytes.length == 0) return "";
+    return java.util.Base64.getEncoder().encodeToString(bytes);
+}
 }
