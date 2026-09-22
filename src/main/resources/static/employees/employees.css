@@ -241,6 +241,19 @@ button {
 button:hover {
     background-color: #1e293b;
 }
+
+.btn{
+    display: flex;
+    position: relative;
+    margin-top: 15px;
+    align-items:center;
+    gap: 20px;
+    justify-self:center;
+}
+.btn1{
+    background-color: #8ccf9b !important;
+    color: #155724;
+}
 .arqv{
 display: grid;
 position: relative;

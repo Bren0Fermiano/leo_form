@@ -55,7 +55,99 @@ public class envControler {
 
             stmt.executeUpdate();
 
-            return "Inscrição enviada com sucesso!";
+            return """
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inscrição realizada</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+        }
+
+        .step-details {
+            width: 90%;
+            max-width: 500px;
+            padding: 50px 30px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #202020;
+            border-radius: 12px;
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.466);
+        }
+
+        .check {
+            color: #88ca74;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: white;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 0;
+            color: #cccccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="step-details">
+
+        <i class="fa-regular fa-circle-check check"></i>
+
+        <h1>Inscrição realizada!</h1>
+
+        <p>Obrigado por se inscrever.</p>
+
+    </div>
+
+</body>
+
+</html>
+
+
+                    
+                    """;
 
         } catch (Exception e) {
             e.printStackTrace();

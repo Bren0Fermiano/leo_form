@@ -154,7 +154,6 @@
                                     <td colspan="4"><strong>Média Aritmética das Disciplinas – Final (0-100)</strong></td>
                                     <td colspan="2">
                                         <input type="number" id="mf" readonly placeholder="Média Final">
-                                        <button type="button" onclick="calculate()">Calcular</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -168,9 +167,15 @@
                                 <tr class="total-row">
                                     <td colspan="4"><strong>TOTAL GERAL DA PONTUAÇÃO</strong></td>
                                     <td colspan="2"><input id="total" type="number" readonly placeholder="Total"></td>
+                                    
                                 </tr>
+                                 
                             </tbody>
                         </table>
+                        <div class="btn">
+                        <button type="button" class="btn1" onclick="calculate()">Salvar</button>
+                        <button type="button"  class="btn2"onclick="calculate()">Calcular</button>
+                        </div>
                     </div>
                 </div>
             </div>
